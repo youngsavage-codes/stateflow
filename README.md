@@ -20,10 +20,11 @@ or
 # Getting Started
 Follow these steps to use stateflow-lib in your project:
 
-```tsx
-1. Wrap Your App with GlobalStateProvider
+
+# 1. Wrap Your App with GlobalStateProvider
 The GlobalStateProvider component initializes the global state and wraps your application.
 
+```tsx
 import React from "react";
 import { GlobalStateProvider, useGlobalState } from "stateflow-lib";
 
@@ -36,12 +37,13 @@ const App = () => {
 };
 
 export default App;
+```
 
 
-
-2. Access Global State with useGlobalState
+# 2. Access Global State with useGlobalState
 Use the useGlobalState hook to access the global state in any component.
 
+```tsx
 import { useGlobalState, useSetGlobalState } from "stateflow-lib";
 
 const Counter = () => {
@@ -58,11 +60,13 @@ const Counter = () => {
     </div>
   );
 };
+```
 
 
-3. Update Global State with useSetGlobalState
+# 3. Update Global State with useSetGlobalState
 Use the useSetGlobalState hook to update the global state.
 
+```tsx
 import React from "react";
 import { useSetGlobalState } from "stateflow-lib";
 
@@ -92,13 +96,13 @@ const UpdateState = () => {
 };
 
 export default UpdateState;
+```
 
-
-Example: Managing Multiple States
+# Example: Managing Multiple States
 Here’s a complete example with multiple states (email and age):
 
-Step 1: Wrap Your App
-
+***Step 1: Wrap Your App***
+```tsx
 import React from "react";
 import { GlobalStateProvider } from "stateflow-lib";
 import DisplayState from "./components/DisplayState";
@@ -117,11 +121,12 @@ const App = () => {
 };
 
 export default App;
+```
 
 
+***Step 2: Display State***
 
-Step 2: Display State
-
+```tsx
 // components/DisplayState.tsx
 import React from "react";
 import { useGlobalState } from "stateflow-lib";
@@ -138,10 +143,11 @@ const DisplayState = () => {
 };
 
 export default DisplayState;
+```
 
+***Step 3: Update State***
 
-Step 3: Update State
-
+```tsx
 // components/UpdateState.tsx
 import React from "react";
 import { useSetGlobalState } from "stateflow-lib";
@@ -162,35 +168,43 @@ const UpdateState = () => {
 };
 
 export default UpdateState;
+```
 
+# API Reference
 
-API Reference
-GlobalStateProvider
+***GlobalStateProvider***
 Wrap your application with this provider to initialize the global state.
 
+```tsx
 <GlobalStateProvider>
   {children}
 </GlobalStateProvider>
+```
 
+***Retrieve the current global state.***
+
+```tsx
 useGlobalState()
-Retrieve the current global state.
 
 const globalState = useGlobalState();
+```
 
+***Set or update the global state.***
+
+```tsx
 useSetGlobalState()
-Set or update the global state.
 
 const setGlobalState = useSetGlobalState();
 setGlobalState((prev) => ({ ...prev, key: value }));
+```
 
-
-Best Practices
+# Best Practices
 Keep State Minimal: Avoid overloading the global state with unnecessary data.
 Immutable Updates: Always return a new state object when updating the state.
 Separate Components: Keep state management logic separate from display logic for maintainability.
 
 
-FAQ
+# FAQ
 Q: Can I use multiple global states?
 A: Yes, you can manage multiple properties within a single global state object.
 
@@ -206,10 +220,10 @@ setGlobalState(() => ({
 }));
 
 
-Contributing
+# Contributing
 Feel free to contribute to stateflow-lib by creating issues or submitting pull requests on the GitHub repository.
 
-License
+# License
 stateflow-lib is licensed under the MIT License.
 
 
