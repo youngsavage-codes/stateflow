@@ -214,10 +214,12 @@ A: Yes, the library is fully typed and works seamlessly with TypeScript.
 Q: How do I initialize the global state with default values?
 A: Pass a function to setGlobalState on app load:
 
+```tsx
 setGlobalState(() => ({
   email: "default@example.com",
   age: 0,
 }));
+```
 
 
 # Contributing
